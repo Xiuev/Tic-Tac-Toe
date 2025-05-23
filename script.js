@@ -8,10 +8,15 @@ let gameboard = (function () {
 
   const makeMove = (index, playerMark) => {
     //modify to check if spot is empty first!
-
-    gameBoard.splice(index, 1, playerMark);
-    console.log(gameBoard);
-    return gameBoard;
+    //use a loop?
+    if (gameBoard[index] === "") {
+      console.log("There is nothing in this index!");
+      gameBoard.splice(index, 1, playerMark);
+      console.log(gameBoard);
+    } else {
+      console.log("Theree is something here already!");
+      console.log(gameBoard);
+    }
   };
 
   return {
@@ -27,16 +32,17 @@ function createPlayer(name, mark) {
   };
 }
 
-//TESTING STUFF//
-let player1 = createPlayer("John", "O");
+let player1 = createPlayer("Sora", "O");
+console.log(player1);
 gameboard.makeMove(4, player1.mark);
+
+//TESTING BENCH//
+let testArray = ["", "", "X", "", ""];
+
+//gameboard.makeMove(3, player1.mark);
 //function makeMove(index, playerMark) {
 //review callback functions
 //limit index 0-8?
 //mabe each player can have a makeMove method/proto?
 //check if spot is empty --> insert into spot. use splice()
-//board.splice(index, index, playerMark);
-//console.log(board);
-//}
-
-///////////////
+//TESTING BENCH//
